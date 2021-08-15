@@ -10,7 +10,7 @@ app.get('/', (req:any, res:any) => {
   let authorize_url = `${STREAMLABS_API_BASE}/authorize?`;
 
   let params:any = {
-    'client_id': 'VJh9fjnod8FYouU5fTQP8kAh75GDLWxN2s2fgTDR',
+    'client_id': 'clientId',
     'redirect_uri': 'http://localhost:3030/auth',
     'response_type': 'code',
     'scope': 'donations.read+donations.create',
@@ -25,8 +25,8 @@ app.get('/auth', (req:any, resp:any) => {
   let code = req.query.code;
   axios.post(`${STREAMLABS_API_BASE}/token?`, {
     'grant_type': 'authorization_code',
-    'client_id': 'VJh9fjnod8FYouU5fTQP8kAh75GDLWxN2s2fgTDR',
-    'client_secret': 'mzBoq1f4eCOM4aV1M0qFpzVA2Kgzkzp1IZAr57Re',
+    'client_id': 'clientId',
+    'client_secret': 'clientSecret',
     'redirect_uri': 'http://localhost:3030/auth',
     'code': code
   }).then((response:any) => {
